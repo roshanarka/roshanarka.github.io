@@ -1,52 +1,96 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Inter:wght@300;400&display=swap');
-
-html, body {
-  margin: 0;
-  padding: 0;
-  background: #000000;
-  color: #F5F3E8;
-  font-family: Inter, sans-serif;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+/* Global */
+body {
+    margin: 0;
+    padding: 0;
+    background: #0d0d0d;
+    color: #e5e5e5;
+    font-family: 'Inter', system-ui, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  text-align: center;
-  padding: 0 20px;
+/* Fade in */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-.brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 500;
-  font-size: 2.8rem;
-  margin-bottom: 1.6rem;
+/* Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.tagline {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  opacity: 0.9;
+/* Brand Title */
+h1 {
+    font-size: 3.8rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin: 0;
+    position: relative;
 }
 
-.coming {
-  font-size: 0.98rem;
-  opacity: 0.85;
+/* Burnt Orange underline */
+h1::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 2.5px;
+    background: #c85a0a; /* burnt saffron/orange */
+    margin: 0.6rem auto 1.2rem auto;
+    border-radius: 2px;
 }
 
-footer {
-  width: 100%;
-  text-align: center;
-  padding-bottom: 18px;
+/* Subtitle */
+.subtitle {
+    font-size: 1.15rem;
+    opacity: 0.78;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.01em;
 }
 
-footer p {
-  font-size: 0.75rem;
-  opacity: 0.75;
+/* Year / timestamp */
+.year {
+    font-size: 0.95rem;
+    opacity: 0.55;
+    margin-bottom: 1.6rem;
+    letter-spacing: 0.02em;
+}
+
+/* Email link */
+.email {
+    color: #e5e5e5;
+    text-decoration: none;
+    font-size: 1rem;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+}
+
+.email:hover {
+    opacity: 0.65;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .year {
+        font-size: 0.85rem;
+    }
+
+    .email {
+        font-size: 0.9rem;
+    }
 }
