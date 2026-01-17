@@ -1,96 +1,128 @@
-/* Global */
+:root {
+  --black: #0b0b0b;
+  --burnt-orange: #c65a1e;
+  --light-bg: #f4f4f4;
+  --muted: #888;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    background: #0d0d0d;
-    color: #e5e5e5;
-    font-family: 'Inter', system-ui, sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-    opacity: 0;
-    animation: fadeIn 0.6s ease forwards;
+  margin: 0;
+  min-height: 100vh;
+  background: var(--light-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow: hidden;
 }
 
-/* Fade in */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* subtle grain */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
 }
 
-/* Container */
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  text-align: center;
+  padding: 40px 24px;
+  max-width: 960px;
 }
 
-/* Brand Title */
-h1 {
-    font-size: 3.8rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    margin: 0;
-    position: relative;
+/* Brand */
+.brand {
+  margin: 0;
+  font-size: clamp(3.2rem, 8vw, 6.5rem);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  background: linear-gradient(90deg, var(--black), var(--burnt-orange));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  opacity: 0;
+  transform: translateY(18px);
+  animation: revealUp 1s cubic-bezier(.22,.61,.36,1) forwards;
 }
 
-/* Burnt Orange underline */
-h1::after {
-    content: "";
-    display: block;
-    width: 80px;
-    height: 2.5px;
-    background: #c85a0a; /* burnt saffron/orange */
-    margin: 0.6rem auto 1.2rem auto;
-    border-radius: 2px;
+/* Subheading */
+.subheading {
+  margin-top: 24px;
+  font-size: clamp(1rem, 2.4vw, 1.35rem);
+  letter-spacing: 0.35em;
+  font-weight: 600;
+  color: var(--burnt-orange);
+
+  opacity: 0;
+  transform: translateY(14px);
+  animation: revealUp 0.9s cubic-bezier(.22,.61,.36,1) forwards;
+  animation-delay: 0.4s;
 }
 
-/* Subtitle */
-.subtitle {
-    font-size: 1.15rem;
-    opacity: 0.78;
-    margin-bottom: 0.6rem;
-    letter-spacing: 0.01em;
+/* Divider */
+.divider {
+  width: 90px;
+  height: 3px;
+  margin: 42px auto;
+  background: linear-gradient(90deg, transparent, var(--burnt-orange), transparent);
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+  animation-delay: 0.75s;
 }
 
-/* Year / timestamp */
-.year {
-    font-size: 0.95rem;
-    opacity: 0.55;
-    margin-bottom: 1.6rem;
-    letter-spacing: 0.02em;
+/* Contact */
+.contact {
+  font-size: 1rem;
+  color: var(--muted);
+
+  opacity: 0;
+  transform: translateY(10px);
+  animation: revealUp 0.8s cubic-bezier(.22,.61,.36,1) forwards;
+  animation-delay: 1s;
 }
 
-/* Email link */
-.email {
-    color: #e5e5e5;
-    text-decoration: none;
-    font-size: 1rem;
-    opacity: 0.85;
-    transition: opacity 0.2s ease;
+.contact a {
+  color: var(--black);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 2px solid var(--burnt-orange);
+  padding-bottom: 2px;
+  transition: color 0.25s ease, border-color 0.25s ease;
 }
 
-.email:hover {
-    opacity: 0.65;
+.contact a:hover {
+  color: var(--burnt-orange);
+  border-color: var(--black);
 }
 
-/* Mobile adjustments */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2.8rem;
-    }
+/* Footer */
+footer {
+  margin-top: 56px;
+  font-size: 0.85rem;
+  color: #aaa;
 
-    .subtitle {
-        font-size: 1rem;
-    }
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+  animation-delay: 1.25s;
+}
 
-    .year {
-        font-size: 0.85rem;
-    }
+/* Animations */
+@keyframes revealUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-    .email {
-        font-size: 0.9rem;
-    }
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
