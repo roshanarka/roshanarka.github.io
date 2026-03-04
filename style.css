@@ -1,146 +1,330 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-body {
-  background: #F4F1EB;
-  color: #1A1A1A;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  font-family: 'Inter', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  overflow: hidden;
+body{
+
+background:#F4F1EB;
+color:#1A1A1A;
+
+font-family:'Inter',sans-serif;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+min-height:100vh;
+padding:2rem;
+
+-webkit-font-smoothing:antialiased;
+text-rendering:optimizeLegibility;
+
 }
 
 /* Container */
-.container {
-  text-align: center;
-  padding: 1rem;
-  opacity: 0;
-  animation: fadeIn 1.3s ease forwards 0.25s;
+
+.container{
+
+text-align:center;
+max-width:620px;
+width:100%;
+
+opacity:0;
+animation:fadeIn 1.2s ease forwards .25s;
+
 }
 
-/* Brand Title */
-.brand-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 4.1rem;
-  font-weight: 600;
-  line-height: 1.05;
-  letter-spacing: 0.11em;
-  margin-bottom: 1.8rem;
+/* Brand */
+.brand-title{
 
-  background: linear-gradient(180deg, #1A1A1A 0%, #C66826 45%, #D88C32 70%, #E6A848 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+font-family:'Playfair Display',serif;
+font-size:4.3rem;
+font-weight:600;
 
-  opacity: 0;
-  filter: blur(14px);
-  transform: translateY(28px);
-  animation: revealTitle 2s cubic-bezier(.18,.47,.12,1) forwards 0.55s;
+line-height:1.05;
+letter-spacing:.11em;
+
+margin-bottom:2rem;
+
+/* Sun-like radial light starting near the R */
+
+background:radial-gradient(
+circle at 10% 10%,
+#1a1a1a 0%,
+#2b1f16 20%,
+#7a3c14 40%,
+#c66826 60%,
+#e89a3f 80%,
+#ffd27a 100%
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+opacity:0;
+filter:blur(14px);
+transform:translateY(28px);
+
+animation:revealTitle 2s cubic-bezier(.18,.47,.12,1) forwards .55s;
+
 }
 
-/* Intro */
-.intro {
-  font-size: 1rem;
-  font-weight: 300;
-  opacity: 0.9;
-  line-height: 1.45;
-  margin-bottom: 2rem;
-  opacity: 0;
-  animation: fadeSlideUp 1.6s ease forwards 1.25s;
+/* Intro text */
+
+.intro{
+
+font-size:1rem;
+font-weight:300;
+
+line-height:1.5;
+
+opacity:.9;
+
+margin-bottom:2.2rem;
+
+opacity:0;
+animation:fadeSlideUp 1.6s ease forwards 1.25s;
+
 }
 
-/* Coming Soon */
-.coming-soon {
-  font-family: 'Playfair Display', serif;
-  font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: 0.25em;
-  margin-bottom: 2.3rem;
-  color: #C37430;
-  opacity: 0;
-  animation: fadeSlideUp 1.6s ease forwards 1.65s;
+/* Coming soon */
+
+.coming-soon{
+
+font-family:'Playfair Display',serif;
+
+font-size:.95rem;
+font-weight:500;
+
+letter-spacing:.25em;
+
+margin-bottom:2.3rem;
+
+color:#C37430;
+
+opacity:0;
+animation:fadeSlideUp 1.6s ease forwards 1.65s;
+
 }
 
 /* Contact */
-.contact {
-  font-size: 0.9rem;
-  color: #9D6233;
-  margin-bottom: 2.6rem;
-  opacity: 0;
-  animation: fadeSlideUp 1.6s ease forwards 2s;
+
+.contact{
+
+font-size:.9rem;
+
+color:#9D6233;
+
+margin-bottom:2.6rem;
+
+opacity:0;
+animation:fadeSlideUp 1.6s ease forwards 2s;
+
 }
 
-.contact a {
-  color: #B66E32;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(182,110,50,0.45);
-  padding-bottom: 1px;
+.contact a{
+
+color:#B66E32;
+
+text-decoration:none;
+
+border-bottom:1px solid rgba(182,110,50,.45);
+
+padding-bottom:2px;
+
+transition:.25s;
+
 }
 
-.contact a:hover {
-  opacity: 0.82;
+.contact a:hover{
+
+opacity:.8;
+border-color:rgba(182,110,50,.8);
+
 }
 
 /* Copyright */
-.copyright {
-  font-size: 0.78rem;
-  color: #8A735B;
-  opacity: 0;
-  animation: fadeSlideUp 1.6s ease forwards 2.3s;
+
+.copyright{
+
+font-size:.78rem;
+
+color:#8A735B;
+
+opacity:0;
+animation:fadeSlideUp 1.6s ease forwards 2.3s;
+
 }
 
-/* Grain + Vignette */
-.grain {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  background-image: url('https://grainy-gradients.vercel.app/noise.png');
-  opacity: 0.1;
-  mix-blend-mode: soft-light;
+/* Grain texture */
+
+.grain{
+
+pointer-events:none;
+
+position:fixed;
+inset:0;
+
+background-image:url("https://grainy-gradients.vercel.app/noise.png");
+
+opacity:.08;
+
+mix-blend-mode:soft-light;
+
 }
 
-.vignette {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle, rgba(0,0,0,0) 50%, rgba(0,0,0,0.18) 100%);
+/* Vignette */
+
+.vignette{
+
+pointer-events:none;
+
+position:fixed;
+inset:0;
+
+background:radial-gradient(
+circle,
+rgba(0,0,0,0) 55%,
+rgba(0,0,0,.18) 100%
+);
+
 }
 
 /* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+
+@keyframes fadeIn{
+
+from{opacity:0;}
+to{opacity:1;}
+
 }
 
-@keyframes revealTitle {
-  0% {
-    opacity: 0;
-    filter: blur(14px);
-    letter-spacing: 0.02em;
-    transform: translateY(28px);
-  }
-  100% {
-    opacity: 1;
-    filter: blur(0);
-    letter-spacing: 0.11em;
-    transform: translateY(0);
-  }
+@keyframes revealTitle{
+
+0%{
+
+opacity:0;
+filter:blur(14px);
+letter-spacing:.02em;
+transform:translateY(28px);
+
 }
 
-@keyframes fadeSlideUp {
-  0% { opacity: 0; transform: translateY(18px); }
-  100% { opacity: 1; transform: translateY(0); }
+100%{
+
+opacity:1;
+filter:blur(0);
+letter-spacing:.11em;
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes fadeSlideUp{
+
+0%{
+
+opacity:0;
+transform:translateY(18px);
+
+}
+
+100%{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
 }
 
 /* Responsive */
-@media (max-width: 520px) {
-  .brand-title { font-size: 3.2rem; }
-  .intro { font-size: 0.9rem; }
+
+@media(max-width:520px){
+
+.brand-title{
+font-size:3.2rem;
+}
+
+.intro{
+font-size:.9rem;
+}
+
+}
+
+/* Projects section */
+
+.projects{
+
+display:flex;
+gap:20px;
+
+justify-content:center;
+flex-wrap:wrap;
+
+margin-bottom:3rem;
+
+opacity:0;
+animation:fadeSlideUp 1.6s ease forwards 1.9s;
+
+}
+
+/* Project cards */
+
+.project-card{
+
+text-decoration:none;
+
+background:rgba(255,255,255,0.4);
+backdrop-filter:blur(4px);
+
+border:1px solid rgba(180,120,70,.25);
+
+padding:16px 24px;
+
+border-radius:12px;
+
+min-width:190px;
+
+transition:all .25s ease;
+
+}
+
+/* Title */
+
+.project-title{
+
+font-family:'Playfair Display',serif;
+
+font-size:1.05rem;
+color:#9D4F1F;
+
+margin-bottom:4px;
+
+}
+
+/* Description */
+
+.project-desc{
+
+font-size:.82rem;
+color:#7A5A42;
+
+}
+
+/* Hover effect */
+
+.project-card:hover{
+
+transform:translateY(-3px);
+
+background:rgba(255,255,255,0.6);
+
+box-shadow:0 8px 20px rgba(150,90,40,.15);
+
 }
